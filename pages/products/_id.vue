@@ -47,6 +47,7 @@
             min-width="170"
             class="text-capitalize"
             color="primary"
+            @click="$store.commit('cart/AddToCart', product)"
           >
             add to cart
           </v-btn>
