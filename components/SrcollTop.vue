@@ -8,7 +8,7 @@
       color="primary"
       v-scroll="checkScroll"
       v-show="showFab"
-      @click="goUp()"
+      @click="goUp"
     >
       <v-icon> mdi-chevron-up </v-icon>
     </v-btn>

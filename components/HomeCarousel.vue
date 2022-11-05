@@ -30,7 +30,7 @@
                   {{ product.name }}
                 </h2>
                 <p class="text-md-h5 text-subtitle-1 primary--text mt-5">
-                  {{ product.price }}
+                  {{ $formatMoney(product.price) }}
                 </p>
                 <p class="text-md-body-2 mb-7">
                   {{ product.description }}

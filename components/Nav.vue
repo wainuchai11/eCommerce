@@ -14,14 +14,23 @@
         FreeCommerce
       </v-toolbar-title>
       <v-spacer />
-      <v-btn icon @click="$router.push('/products')">
+      <v-btn icon nuxt to="/products">
         <v-icon size="20">mdi-store-outline</v-icon>
       </v-btn>
-      <v-btn icon>
+      <v-badge
+        v-if="$store.state.cart.cart.length > 0"
+        overlap
+        :content="$store.state.cart.cart.length"
+      >
+        <v-btn icon nuxt to="/cart">
+          <v-icon size="20">mdi-cart-outline</v-icon>
+        </v-btn>
+      </v-badge>
+      <v-btn v-else nuxt to="/cart" icon>
         <v-icon size="20">mdi-cart-outline</v-icon>
       </v-btn>
       <v-divider vertical class="mx-md-5 mx-2" />
-      <v-btn icon>
+      <v-btn @click="toggleTheme" icon>
         <v-icon size="20">mdi-brightness-7</v-icon>
       </v-btn>
     </v-app-bar>
@@ -29,7 +38,19 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      darkMode: false,
+    };
+  },
+  methods: {
+    toggleTheme() {
+      this.$vuetify.theme.dark = !this.$vuetify.theme.dark;
+      this.$store.commit("cart/ToggleTheme", this.$vuetify.theme.dark);
+    },
+  },
+};
 </script>
 
 <style>
