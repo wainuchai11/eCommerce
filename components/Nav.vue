@@ -14,7 +14,7 @@
         FreeCommerce
       </v-toolbar-title>
       <v-spacer />
-      <v-btn icon>
+      <v-btn icon @click="$router.push('/products')">
         <v-icon size="20">mdi-store-outline</v-icon>
       </v-btn>
       <v-btn icon>

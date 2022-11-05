@@ -36,6 +36,8 @@
                   {{ product.description }}
                 </p>
                 <v-btn
+                  nuxt
+                  :to="`products/${product.id}`"
                   depressed
                   color="primary"
                   class="text-capitalize"
